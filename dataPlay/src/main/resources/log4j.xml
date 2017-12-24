@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='GBK' ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+<layout class="org.apache.log4j.PatternLayout">
+<param name="ConversionPattern" value="%-d{yyyy-MM-dd HH:mm:ss} [%c]-[%p] %m%n" />
+</layout>
+</appender>
+
+<appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
+<param name="DatePattern" value="'.'yyyy-MM-dd" />
+<param name="Append" value="true" />
+<param name="file" value="./log/file.log" />
+<layout class="org.apache.log4j.PatternLayout">
+<param name="ConversionPattern" value="%-d{yyyy-MM-dd HH:mm:ss} [%c]-[%p] %m%n" />
+</layout>
+</appender>
+
+<appender name="exceptionError" class="org.apache.log4j.DailyRollingFileAppender">
+<param name="DatePattern" value="'.'yyyy-MM-dd" />
+<param name="file" value="./log/exceptionError.log" />
+<layout class="org.apache.log4j.PatternLayout">
+<param name="ConversionPattern" value="%-d{yyyy-MM-dd HH:mm:ss} [%c]-[%p] %m%n" />
+</layout>
+</appender>
+
+<category name="org.springframework" additivity="true">
+<priority value="error" />
+<appender-ref ref="FILE" />
+</category>
+<category name="java.sql" additivity="true">
+<priority value="error" />
+<appender-ref ref="FILE" />
+</category>
+<category name="exceptionError" additivity="true">
+<priority value="error" />
+<appender-ref ref="exceptionError" />
+</category>
+
+<root>
+<priority value="info" />
+<appender-ref ref="CONSOLE" />
+<appender-ref ref="FILE" />
+</root>
+</log4j:configuration>
