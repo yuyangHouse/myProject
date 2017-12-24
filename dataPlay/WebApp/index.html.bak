@@ -5,7 +5,7 @@
     <script src="/resources/js/jquery-3.2.1.js"></script>
 </head>
 <body>
-<!-- 为ECharts准备一个具备大小（宽高）的Do111 -->
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 <div id="main" style="height:400px"></div>
 <!-- hellow -->
 <script language="JavaScript" type="text/javascript" src="/resources/js/page/index.js"></script>
